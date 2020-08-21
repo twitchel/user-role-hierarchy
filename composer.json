@@ -1,0 +1,12 @@
+{
+    "name": "twitch/user-role-heirarchy",
+    "description": "User role heirarchy challenge",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Daniel K Jones",
+            "email": "me@danielkjones.com"
+        }
+    ],
+    "require": {}
+}
