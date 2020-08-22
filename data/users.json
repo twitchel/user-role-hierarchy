@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "name": "Adam Admin",
+    "role_id": 1
+  },
+  {
+    "id": 2,
+    "name": "Emily Employee",
+    "role_id": 4
+  },
+  {
+    "id": 3,
+    "name": "Sam Supervisor",
+    "role_id": 3
+  },
+  {
+    "id": 4,
+    "name": "Mary Manager",
+    "role_id": 2
+  },
+  {
+    "id": 5,
+    "name": "Tim Trainer",
+    "role_id": 5
+  }
+]
