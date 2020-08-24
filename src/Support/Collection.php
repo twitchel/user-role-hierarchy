@@ -14,7 +14,7 @@ class Collection
         $this->data = $data;
     }
 
-    public function getById(int $id): ?Entity
+    public function get(int $id): ?Entity
     {
         $matches = array_filter($this->data, static function (Entity $item) use ($id) {
             return $item->getId() === $id;

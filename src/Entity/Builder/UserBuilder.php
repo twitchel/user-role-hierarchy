@@ -5,7 +5,7 @@ namespace UserRoleHierarchy\Entity\Builder;
 
 use UserRoleHierarchy\Entity\User;
 
-class UserBuilder
+class UserBuilder implements Builder
 {
     public function build(array $data): User
     {
