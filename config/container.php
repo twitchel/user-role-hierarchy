@@ -5,7 +5,9 @@ use Pimple\Container;
 use Symfony\Component\Console\Application;
 use UserRoleHierarchy\Command\GetUserCommand;
 use UserRoleHierarchy\Data\DataSource;
+use UserRoleHierarchy\Entity\Builder\RoleBuilder;
 use UserRoleHierarchy\Entity\Builder\UserBuilder;
+use UserRoleHierarchy\Repository\RoleRepository;
 use UserRoleHierarchy\Repository\UserRepository;
 
 $container = new Container();
@@ -23,6 +25,13 @@ $container[UserRepository::class] = static function (Container $container): User
 
     $dataSource = new DataSource(json_decode($rawData, true));
     return new UserRepository($dataSource, new UserBuilder());
+};
+
+$container[RoleRepository::class] = static function (Container $container): RoleRepository {
+    $rawData = file_get_contents(__DIR__ . '/../data/users.json');
+
+    $dataSource = new DataSource(json_decode($rawData, true));
+    return new RoleRepository($dataSource, new RoleBuilder());
 };
 
 return $container;
