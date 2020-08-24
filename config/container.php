@@ -9,15 +9,20 @@ use UserRoleHierarchy\Entity\Builder\RoleBuilder;
 use UserRoleHierarchy\Entity\Builder\UserBuilder;
 use UserRoleHierarchy\Repository\RoleRepository;
 use UserRoleHierarchy\Repository\UserRepository;
+use UserRoleHierarchy\Service\UserRoleService;
 
 $container = new Container();
 
 $container[Application::class] = static function (Container $container): Application {
     $application = new Application('User Role Hierarchy');
 
-    $application->add(new GetUserCommand($container[UserRepository::class]));
+    $application->add(new GetUserCommand($container[UserRoleService::class]));
 
     return $application;
+};
+
+$container[UserRoleService::class] = static function (Container $container): UserRoleService {
+    return new UserRoleService($container[UserRepository::class], $container[RoleRepository::class]);
 };
 
 $container[UserRepository::class] = static function (Container $container): UserRepository {
