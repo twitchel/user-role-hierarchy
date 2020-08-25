@@ -25,7 +25,7 @@ abstract class AbstractRepository
         return !empty($item) ? $this->buildEntity($item) : null;
     }
 
-    public function findByField(string $field, $value): Collection
+    public function findByField(string $field, $value): array
     {
         $items = $this->dataSource->findByField($field, $value);
 
@@ -34,7 +34,7 @@ abstract class AbstractRepository
             $entities[] = $this->buildEntity($item);
         }
 
-        return new Collection($entities);
+        return $entities;
     }
 
     protected function buildEntity(array $data): object
