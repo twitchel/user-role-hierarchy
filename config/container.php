@@ -4,6 +4,7 @@ declare(strict_types=1);
 use Pimple\Container;
 use Symfony\Component\Console\Application;
 use UserRoleHierarchy\Command\GetUserCommand;
+use UserRoleHierarchy\Command\GetUserSubordinatesCommand;
 use UserRoleHierarchy\Data\DataSource;
 use UserRoleHierarchy\Entity\Builder\RoleBuilder;
 use UserRoleHierarchy\Entity\Builder\UserBuilder;
@@ -17,6 +18,7 @@ $container[Application::class] = static function (Container $container): Applica
     $application = new Application('User Role Hierarchy');
 
     $application->add(new GetUserCommand($container[UserRoleService::class]));
+    $application->add(new GetUserSubordinatesCommand($container[UserRoleService::class]));
 
     return $application;
 };
