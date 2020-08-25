@@ -24,4 +24,9 @@ class User extends Entity
             'roleId' => $this->roleId
         ]);
     }
+
+    public function getRoleId(): int
+    {
+        return $this->roleId;
+    }
 }
