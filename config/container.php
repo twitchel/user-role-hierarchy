@@ -33,7 +33,7 @@ $container[UserRepository::class] = static function (Container $container): User
 };
 
 $container[RoleRepository::class] = static function (Container $container): RoleRepository {
-    $rawData = file_get_contents(__DIR__ . '/../data/users.json');
+    $rawData = file_get_contents(__DIR__ . '/../data/roles.json');
 
     $dataSource = new DataSource(json_decode($rawData, true));
     return new RoleRepository($dataSource, new RoleBuilder());
