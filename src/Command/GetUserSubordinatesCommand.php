@@ -7,6 +7,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use UserRoleHierarchy\Entity\User;
 use UserRoleHierarchy\Service\UserRoleService;
 
 class GetUserSubordinatesCommand extends Command
@@ -33,6 +34,10 @@ class GetUserSubordinatesCommand extends Command
         $userId = (int) $input->getArgument('user-id');
 
         $user = $this->userRoleService->getUserById($userId);
+
+        if (!$user instanceof User) {
+            return 1;
+        }
 
         $output->write(json_encode($this->userRoleService->getUserSubordinates($user)));
 
