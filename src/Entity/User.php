@@ -25,6 +25,11 @@ class User extends Entity
         ]);
     }
 
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
     public function getRoleId(): int
     {
         return $this->roleId;
