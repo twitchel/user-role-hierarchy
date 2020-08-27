@@ -5,7 +5,6 @@ namespace UserRoleHierarchy\Repository;
 
 use UserRoleHierarchy\Data\DataSource;
 use UserRoleHierarchy\Entity\Builder\Builder;
-use UserRoleHierarchy\Support\Collection;
 
 abstract class AbstractRepository
 {
