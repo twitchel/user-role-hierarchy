@@ -6,9 +6,9 @@ namespace UserRoleHierarchy\Entity;
 
 class Role
 {
-    private $id;
-    private $name;
-    private $parentId;
+    private int $id;
+    private string $name;
+    private int $parentId;
 
     public function __construct(int $id, string $name, int $parentId)
     {
