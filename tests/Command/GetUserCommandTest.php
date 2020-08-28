@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace UserRoleHierarchy\Tests\Command;
@@ -84,5 +85,4 @@ class GetUserCommandTest extends TestCase
         $command = new GetUserCommand($userRoleService);
         $this->assertEquals(1, $command->execute($mockInput, $mockOutput));
     }
-
 }
