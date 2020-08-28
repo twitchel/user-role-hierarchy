@@ -26,12 +26,7 @@ make getUser USER_ID=1
 ```
 
 ## Testing
-Run the below command to run the test suite
-```
-make test
-```
-
 Run the below command to run the test suite with coverage. Coverage is generated as HTML and will be placed into a folder called `build/`
 ```
-make test-coverage
+make test
 ```
