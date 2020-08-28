@@ -30,12 +30,11 @@ class UserRoleService
         $subordinates = [];
         foreach ($subordinateRoles as $role) {
             $roleSubordinates = $this->getUsersByRole($role->getId());
+            $subordinates[] = $roleSubordinates;
 
             foreach ($roleSubordinates as $roleSubordinate) {
                 $subordinates[] = $this->getUserSubordinates($roleSubordinate);
             }
-
-            $subordinates[] = $roleSubordinates;
         }
 
         return array_merge([], ...$subordinates);
