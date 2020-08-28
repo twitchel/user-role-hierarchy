@@ -2,6 +2,7 @@
 
 PWD_PATH=${1}
 
+# Build application container
 docker image rm user-role-hierarchy user-role-hierarchy-test || true
 docker build \
     -t user-role-hierarchy \
@@ -9,8 +10,14 @@ docker build \
     -f .cicd/docker/Dockerfile \
     "${PWD_PATH}"
 
+# Build test container
 docker build \
     -t user-role-hierarchy-test \
     --build-arg "DEV=true" \
     -f ${PWD_PATH}/.cicd/docker/Dockerfile \
     "${PWD_PATH}"
+
+# Copy built vendor dir to host
+docker create -ti --name user-role-hierarchy-vendor user-role-hierarchy-test bash
+docker cp user-role-hierarchy-vendor:/var/www/vendor ${PWD_PATH}/vendor
+docker rm -f user-role-hierarchy-vendor
