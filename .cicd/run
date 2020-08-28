@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+PWD_PATH=${1}
+COMMAND=${2}
+COMMAND_ARG=${3}
+
+docker run --rm \
+    -v ${PWD_PATH}:/var/www \
+    user-role-hierarchy \
+    /bin/sh -c "php /var/www/bin/console.php ${COMMAND} ${COMMAND_ARG}"
+
+if [ $? -ne 0 ]
+then
+    echo "Command failed";
+fi

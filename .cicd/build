@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+PWD_PATH=${1}
+
+docker image rm user-role-hierarchy user-role-hierarchy-test || true
+docker build \
+    -t user-role-hierarchy \
+    --build-arg "DEV=false" \
+    -f .cicd/docker/Dockerfile \
+    "${PWD_PATH}"
+
+docker build \
+    -t user-role-hierarchy-test \
+    --build-arg "DEV=true" \
+    -f ${PWD_PATH}/.cicd/docker/Dockerfile \
+    "${PWD_PATH}"

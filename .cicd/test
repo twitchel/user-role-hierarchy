@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+PWD_PATH=${1}
+
+docker run --rm \
+    -v ${PWD_PATH}:/var/www \
+    user-role-hierarchy-test \
+    /bin/sh -c "php /var/www/vendor/bin/phpunit --coverage-html /var/www/build/"
