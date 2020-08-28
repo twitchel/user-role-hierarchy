@@ -12,16 +12,26 @@ Run the below command to build the application. This is required before being ab
 make build
 ```
 
-This will @todo
+This will build a both the main container for the command to run in, as well as a test container.
 
 ## Usage
 Simply run the below command to get a list of Subordinates for a user <USER_ID>
 ```
-make run getSubordinates <USER_ID>
+make getSubordinates USER_ID=1
+```
+
+You can also get the details for a specific user with the getUser command
+```
+make getUser USER_ID=1
 ```
 
 ## Testing
 Run the below command to run the test suite
 ```
 make test
+```
+
+Run the below command to run the test suite with coverage. Coverage is generated as HTML and will be placed into a folder called `build/`
+```
+make test-coverage
 ```
