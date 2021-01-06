@@ -12,6 +12,8 @@ Run the below command to build the application. This is required before being ab
 make build
 ```
 
+More dummy text
+
 This will build a both the main container for the command to run in, as well as a test container.
 
 ## Usage
