@@ -35,4 +35,4 @@ make test
 
 ## Test Header
 
-This is dummy text
+This is text
